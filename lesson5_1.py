@@ -10,8 +10,9 @@ green = GPIO.PWM(27, 75)
 red = GPIO.PWM(22, 75)   
 
 
+
+i = 25
 try:
-    i = 25
     while(True): 
         red.start(i*2)
         blue.start(i*2)
