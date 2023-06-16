@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
-from rgbLed import RGBLed
+from time import sleep
+import rgbLed 
 
 if __name__ == '__main__':
-    rgb = TGBLed(22,27,17)
-    rgb.red()
+    rgb = rgbLed.RGBLed(22,27,17)    
+    rgb.redLight(forever = True)
+    rgb.clean()

@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+from time import sleep
 GPIO.setmode(GPIO.BCM)
 
 class RGBLed():
@@ -10,15 +11,18 @@ class RGBLed():
         self.green=GPIO.PWM(green_pin,75)
         self.blue=GPIO.PWM(blue_pin,75)
     
-    def redLight(self):
-        try:
-            while(True)
-                self.red.start(75)
-        except KeyboardInterrupt:
+    def redLight(self,second=3,forever=False):
+        if forever:
+            try:
+                while(True):
+                    self.red.start(75)
+            except:
+                self.red.stop()
+                GPIO.cleanup()
+        else:
+            self.red.start(75)
+            sleep(second)
             self.red.stop()
-
-    def close(self):
-        self.red.stop()
-        self.green.stop()
-        self.blue.stop()
+        
+    def clearn():        
         GPIO.cleanup()
