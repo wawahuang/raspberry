@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
             datetimeStr = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            response = requests.get(f'https://wawahuang-opulent-carnival-9p7w6vxr5q4fxrw4-8000.preview.app.github.dev/raspberry?time={datetimeStr}&light={value}&temperature={mcp3008_ch6.value}')
+            response = requests.get(f'https://fastapi-zlq3.onrender.com/raspberry?time={datetimeStr}&light={value}&temperature={mcp3008_ch6.value}')
             
             if response.ok:
                 print("上傳資料成功")
