@@ -11,7 +11,7 @@ if __name__ == "__main__":
     mcp3008_ch6 = zero.MCP3008(channel=6)
     try:
         while True:
-            value = round(mcp3008_ch7.value*100)
+            value = mcp3008_ch6.value*100
             print("光敏電阻値: ", value)
             if value > 20:
                 print("光線亮")
@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
             datetimeStr = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            response = requests.get(f'https://fastapi-zlq3.onrender.com/raspberry?time={datetimeStr}&light={value}&temperature={mcp3008_ch6.value}')
+            response = requests.get(f'https://fastapi-zlq3.onrender.com/raspberry?time={datetimeStr}&light={value}&temperature={round(mcp3008_ch7.value*100)}')
             
             if response.ok:
                 print("上傳資料成功")
